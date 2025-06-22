@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="connection-status disconnected" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Disconnected</span>
+            </div>
+            
+            <div class="user-info" id="userInfo">
+                <div class="username-section">
+                    <input type="text" class="username-input" id="usernameInput" 
+                           placeholder="Enter your username" maxlength="20">
+                    <button class="connect-btn" id="connectBtn">Connect</button>
+                </div>
+            </div>
+            
+            <h1>🚀 Real-Time Chat</h1>
+            <div class="stats">
+                <span class="online-count" id="onlineCount">Online: 0</span>
+                <span class="latency" id="latency">Ping: --ms</span>
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <!-- Online Users Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <h3>Online Users</h3>
+                <div class="users-list" id="usersList">
+                    <div class="no-users">No users online</div>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="chat-main">
+                <div class="messages-container" id="messagesContainer">
+                    <div class="welcome-message">
+                        <h2>Welcome to Real-Time Chat! 👋</h2>
+                        <p>Enter your username and connect to start chatting</p>
+                    </div>
+                </div>
+                
+                <div class="typing-indicator" id="typingIndicator"></div>
+                
+                <div class="input-section" id="inputSection">
+                    <div class="message-input-container">
+                        <input type="text" class="message-input" id="messageInput" 
+                               placeholder="Type your message..." maxlength="500" disabled>
+                        <button class="send-btn" id="sendBtn" disabled>
+                            <span>Send</span>
+                            <span class="send-icon">📤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Stats -->
+        <div class="footer">
+            <div class="stats-bar">
+                <span>Messages: <span id="messageCount">0</span></span>
+                <span>•</span>
+                <span>Connected: <span id="connectionTime">--</span></span>
+                <span>•</span>
+                <span>Last Activity: <span id="lastActivity">Never</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div class="notifications" id="notifications"></div>
+
+    <!-- Socket.IO Client Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/chat.js"></script>
+</body>
+</html>
